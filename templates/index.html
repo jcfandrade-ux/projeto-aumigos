@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>ONG Aumigos</title>
+</head>
+<body>
+    <h1>Painel de Controlo - ONG Aumigos</h1>
+    <form action="/animais" method="POST">
+        <input type="text" name="nome" placeholder="Nome do Animal">
+        <input type="text" name="especie" placeholder="Espécie">
+        <input type="text" name="idade" placeholder="Idade">
+        <input type="text" name="status_saude" placeholder="Estado de Saúde">
+        <textarea name="historico" placeholder="Histórico"></textarea>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <ul>
+        {% for animal in animais %}
+            <li>{{ animal.nome }} - {{ animal.especie }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
