@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4 text-success">Gestão e Registo de Animais Resgatados</h2>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Novo Registo de Animal</h5>
+        <form method="POST">
+            <div class="row g-3">
+                <div class="col-md-3"><input type="text" class="form-control" name="nome" placeholder="Nome do Animal" required></div>
+                <div class="col-md-3"><input type="text" class="form-control" name="especie" placeholder="Espécie (Cão/Gato)" required></div>
+                <div class="col-md-3"><input type="text" class="form-control" name="idade" placeholder="Idade / Estimada" required></div>
+                <div class="col-md-3"><input type="text" class="form-control" name="status_saude" placeholder="Status Clínico" required></div>
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Registar Animal</button>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Animais Cadastrados no Sistema</h5>
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Espécie</th>
+                    <th>Idade</th>
+                    <th>Status de Saúde</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in animais %}
+                <tr>
+                    <td>{{ a.id }}</td>
+                    <td>{{ a.nome }}</td>
+                    <td>{{ a.especie }}</td>
+                    <td>{{ a.idade }}</td>
+                    <td>{{ a.status_saude }}</td>
+                    <td class="text-end">
+                        <form action="{{ url_for('deletar_animal', id=a.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja apagar este registo? Todos os suprimentos associados também serão removidos.');">Apagar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr><td colspan="6" class="text-center text-muted">Nenhum animal registado até o momento.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

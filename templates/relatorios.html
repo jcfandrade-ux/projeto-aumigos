@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4 text-success">Relatórios de Impacto e Alinhamento ODS 15</h2>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="text-secondary">Indicadores Consolidados do MVP</h4>
+        <p class="mt-3">A aplicação encontra-se em pleno funcionamento produtivo, garantindo suporte direto aos objetivos de preservação, acolhimento e manejo ético da fauna urbana.</p>
+        <ul class="list-group list-group-flush my-4">
+            <li class="list-group-item"><strong>Total de Registos de Animais:</strong> {{ total_animais }} registos ativos</li>
+            <li class="list-group-item"><strong>Total de Suprimentos Triados:</strong> {{ total_suprimentos }} kg geridos</li>
+            <li class="list-group-item"><strong>Objetivo Global Alcançado:</strong> ODS 15 - Vida Terrestre (Proteção e manejo sustentável de ecossistemas urbanos e animais).</li>
+        </ul>
+        <a href="{{ url_for('animais') }}" class="btn btn-outline-success">Gerir Registos</a>
+        <a href="{{ url_for('triagem') }}" class="btn btn-outline-success">Ver Suprimentos</a>
+    </div>
+</div>
+{% endblock %}
