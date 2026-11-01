@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-success">Sistema Integrado Aumigos</h1>
+        <p class="col-md-8 fs-4 text-secondary">Plataforma dedicada ao suporte operacional de resgates, controle clínico de animais e gestão transparente de suprimentos comunitários.</p>
+        <hr class="my-4">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <div class="p-3 border bg-light rounded">
+                    <h3>{{ total_animais }}</h3>
+                    <p class="text-muted mb-0">Animais Registados</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 border bg-light rounded">
+                    <h3>{{ total_suprimentos }} kg</h3>
+                    <p class="text-muted mb-0">Suprimentos Geridos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
